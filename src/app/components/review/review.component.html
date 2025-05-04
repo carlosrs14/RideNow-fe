@@ -1,0 +1,30 @@
+<main class="contenedor">
+    <h2>Escribe tu reseña</h2>
+    <form (ngSubmit)="enviarReview()">
+      <label for="comentario">Comentario:</label>
+      <textarea
+        id="comentario"
+        name="comentario"
+        [(ngModel)]="review.comentario"
+        placeholder="Escribe tu experiencia con el viaje aquí..."
+        required>
+      </textarea>
+  
+      <label>Calificación:</label>
+      <div class="estrellas">
+        <input type="radio" name="calificacion" id="estrella5" [(ngModel)]="review.calificacion" [value]="5">
+        <label for="estrella5">★</label>
+        <input type="radio" name="calificacion" id="estrella4" [(ngModel)]="review.calificacion" [value]="4">
+        <label for="estrella4">★</label>
+        <input type="radio" name="calificacion" id="estrella3" [(ngModel)]="review.calificacion" [value]="3">
+        <label for="estrella3">★</label>
+        <input type="radio" name="calificacion" id="estrella2" [(ngModel)]="review.calificacion" [value]="2">
+        <label for="estrella2">★</label>
+        <input type="radio" name="calificacion" id="estrella1" [(ngModel)]="review.calificacion" [value]="1">
+        <label for="estrella1">★</label>
+      </div>
+  
+      <button type="submit">Enviar reseña</button>
+    </form>
+  </main>
+  
