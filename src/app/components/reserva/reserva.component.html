@@ -1,0 +1,28 @@
+<main>
+    <div id="titulo">
+      <h1>Estas son tus reservas:</h1>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Origen</th>
+          <th>Destino</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Prestador de servicio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reserva of reservas">
+          <td> {{reserva.origen}}</td>
+          <td> {{reserva.destino}} </td>
+          <td> {{reserva.fecha}} </td>
+          <td> {{reserva.hora}} </td>
+          <td> {{reserva.prestadorDeServicio}} </td>
+          <td> <i (click)="editar(reserva)" >editar</i> <i (click)="borrar(reserva)" >borrar</i> </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
