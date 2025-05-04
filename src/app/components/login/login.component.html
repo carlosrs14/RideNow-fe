@@ -1,0 +1,31 @@
+<div class="container">
+    <form class="login-form" (ngSubmit)="login()">
+      <div class="header">
+        <i class="fas fa-sign-in-alt icon"></i>
+        <h1>Iniciar Sesión</h1>
+      </div>
+  
+      <div class="input-group">
+        <input 
+          type="email" 
+          name="correo" 
+          [(ngModel)]="email" 
+          placeholder="Email" 
+          required />
+      </div>
+  
+      <div class="input-group">
+        <input 
+          type="password" 
+          name="password" 
+          [(ngModel)]="password" 
+          placeholder="Contraseña" 
+          required />
+      </div>
+  
+      <button type="submit" class="btn-ingresar">Ingresar</button>
+    </form>
+    <p>No tienes  una cuenta? <a routerLink="/registro">registrate aqui</a></p>
+  </div>
+  
+  
