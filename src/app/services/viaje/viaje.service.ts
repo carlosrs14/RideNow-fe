@@ -1,17 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ViajeService {
 
-  private apiUrl = 'http://localhost:8080/microservicio_viajes_RN/ViajeServlet';
-
   constructor(private http: HttpClient) {}
 
-  listarViajes(): Observable<{ resultado: string, viajes: any[] }> {
-    return this.http.get<{ resultado: string, viajes: any[] }>(`${this.apiUrl}?metodo=listar`);
+  listarViajes(): Observable<any> {
+    return this.http.get(environment.apiUrl + "microservicio_viajes_RN/ViajeServlet");
   }
 }

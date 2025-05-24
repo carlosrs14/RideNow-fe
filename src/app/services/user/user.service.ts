@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl = environment.apiUrl +'microservicio_usuario_RN/UsuarioServlet'
+  private apiUrl = environment.apiUrl +'microservicio_usuario_RN/LoginServlet'
   constructor(private http: HttpClient) {}
   login(correo: string, password: string): Observable<any> {
-    const params = new HttpParams()
-    .set('correo', correo)
-    .set('password', password);
-    return this.http.get(this.apiUrl, { params });
+    return this.http.post(this.apiUrl, { 
+      correo,
+      password  
+    });
   }
 }

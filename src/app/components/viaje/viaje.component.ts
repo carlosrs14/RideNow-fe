@@ -20,10 +20,8 @@ export class ViajeComponent {
   ngOnInit(): void {
     this.viajeService.listarViajes().subscribe({
       next: (data) => {
-        if (data.resultado === 'hecho' && Array.isArray(data.viajes)) {
-          this.viajes = data.viajes;
-        } else {
-          console.warn('No se encontraron viajes o el formato es incorrecto');
+        for (let viaje of data) {
+          this.viajes.push({id: viaje.id, fecha: viaje.id, hora: viaje.hora, precio: viaje.precio, tipo: viaje.tipo});
         }
       },
       error: (err) => {
