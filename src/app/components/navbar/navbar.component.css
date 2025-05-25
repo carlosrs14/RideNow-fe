@@ -14,6 +14,7 @@ nav a {
     font-weight: bold;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 nav a:hover {
