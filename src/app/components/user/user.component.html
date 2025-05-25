@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="datos">
+        <div *ngIf="!modoEdicion; else editar">
+            <p class="dato">Nombre: {{nombre}}</p>
+            <p class="dato">Apellido: {{apellido}}</p>
+            <p class="dato">Telefono: {{telefono}}</p>
+            <p class="dato">Email: {{email}}</p>
+            <p class="dato">Tipo: {{tipo}}</p>
+            <a *ngIf="tipo == 'prestadordeservicio'" routerLink="/mis-viajes" >Mis Viajes</a>
+        </div>
+        <ng-template #editar>
+            <label>Nombre: <input [(ngModel)]="nombre" /></label><br />
+            <label>Apellido: <input [(ngModel)]="apellido" /></label><br />
+            <label>Teléfono: <input [(ngModel)]="telefono" /></label><br />
+            <label>Email: <input [(ngModel)]="email" /></label><br />
+        </ng-template>
+    </div>
+    <div class="btns">
+        <button *ngIf="!modoEdicion" (click)="editarCuenta()" type="button">Editar</button>
+        <button *ngIf="modoEdicion" (click)="guardarCambios()" type="button">Guardar</button>
+        <button *ngIf="modoEdicion" (click)="cancelarEdicion()" type="button">Cancelar</button>
+        <button (click)="borrarCuenta()" type="button">Borrar Cuenta</button>
+        <button (click)="cerrarSesion()" type="button">Cerrar Sesión</button>
+    </div>
+</div>

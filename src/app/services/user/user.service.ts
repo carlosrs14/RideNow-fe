@@ -20,7 +20,6 @@ export class UserService {
 		});
     }
 
-
 	create(usuario: Usuario): Observable<any> {
 		return this.http.post(this.urlUsuario, {
 			nombre: usuario.nombre,
@@ -46,7 +45,7 @@ export class UserService {
 		});
 	}
 
-	delete(usuario: Usuario): Observable<any> {
-		return this.http.delete(this.urlUsuario + `?id=${usuario.id}`);
+	delete(idUsuario: number): Observable<any> {
+		return this.http.delete(this.urlUsuario + `?id=${idUsuario}`);
 	}
 }
