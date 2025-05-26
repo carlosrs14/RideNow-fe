@@ -1,4 +1,4 @@
-/* Contenedor principal */
+
 .data-container {
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +10,7 @@
 
 .owner-panel {
   width: 300px;
-  background-color:  #1e90ff;
+  background-color:  #0f64b8;
   color: white;
   padding: 20px;
   border-radius: 8px;
@@ -47,7 +47,7 @@
 }
 
 #h4-mis-vehiculos {
-  color: #1e90ff;
+  color: #0f64b8;
   margin-bottom: 15px;
 }
 
@@ -67,12 +67,12 @@
 
 .vehiculo-id {
   font-weight: bold;
-  color: #1e90ff;
+  color: #0f64b8;
 }
 
 .item-vehiculo {
   display: inline-block;
-  background-color: #1e90ff;
+  background-color: #0f64b8;
   color: white;
   padding: 4px 8px;
   border-radius: 4px;
@@ -90,15 +90,15 @@
 
 .btn-vehiculo i {
   cursor: pointer;
-  color: #1e90ff;
+  color: #0f64b8;
   font-size: 1.2em;
 }
 
 .btn-vehiculo i:hover {
-  color: #104e8b;
+  font-size: 25px;
 }
 
-/* Estilos para modales */
+
 .modal {
   display: none;
   position: fixed;
@@ -126,7 +126,7 @@
 }
 
 .input-modal h2 {
-  color: #1e90ff;
+  color: #0f64b8;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -139,7 +139,7 @@
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #1e90ff;
+  color: #0f64b8;
 }
 
 .field input[type="text"],
@@ -162,7 +162,7 @@
 
 .btn-modal button {
   padding: 10px 20px;
-  background-color: #1e90ff;
+  background-color: #0f64b8;
   color: white;
   border: none;
   border-radius: 6px;
@@ -170,20 +170,24 @@
 }
 
 .btn-modal button:hover {
-  background-color: #104e8b;
+  background-color: #0f64b8;
 }
 
 .btn-container {
   margin-top: 20px;
   text-align: center;
   font-size: 15px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 
 .agregar_vehiculo {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #1e90ff;
+  background-color: #0f64b8;
   color: white;
   padding: 1px 5px;
   border-radius: 6px;
@@ -191,6 +195,3 @@
   font-weight: bold;
 }
 
-.agregar_vehiculo:hover {
-  background-color: #104e8b;
-}
