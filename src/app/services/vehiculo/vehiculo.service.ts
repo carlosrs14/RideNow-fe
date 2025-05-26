@@ -47,7 +47,7 @@ export class VehiculoService {
 		});
 	}
 
-	delete(vehiculo: Vehiculo): Observable<any> {
-		return this.http.delete(this.urlVehiculo + `?id=${vehiculo.id}`);
+	delete(id: number): Observable<any> {
+		return this.http.delete(this.urlVehiculo + `?id=${id}`);
 	}
 }

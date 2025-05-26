@@ -1,0 +1,105 @@
+<div class="data-container">
+    <aside class="owner-panel">
+        <div class="owner-header">
+            <h2>Perfil del Prestador de servicio</h2>
+            <div id="foto-perfil" class="profile-pic">
+                <img src="/assets/foto-user.jpg" alt="Foto del conductor">
+            </div>
+        </div>
+
+        <div class="datos-personales">
+            <h3>Datos Personales</h3>
+            <p><strong>Nombre:</strong>{{nombre}}</p>
+            <p><strong>Correo:</strong>{{correo}}</p>
+        </div>
+    </aside>
+    		<div class="owner-content">
+			<h4 id="h4-mis-vehiculos">Mis Vehiculos</h4>
+			<section id="vehiculos" class="vehiculos-list">
+				<div class="vehiculo-card" *ngFor="let vehiculo of vehiculos">
+					<h5 class="vehiculo-id">ID: {{ vehiculo.id }}</h5>
+                    <p class="marca-vehiculo">{{vehiculo.marca}}</p>
+					<span *ngIf="vehiculo.tieneAire" class="item-vehiculo">Tiene Aire</span>
+					<p class="modelo-vehiculo">{{vehiculo.modelo}}</p>
+					<p class="color-vehiculo">{{ vehiculo.color }}</p>
+                    <p class="capacidad-vehiculo">{{vehiculo.capacidad}}</p>
+					<div class="btn-vehiculo">
+						<i (click)="editVehiculo(vehiculo)" class="bi bi-pencil-square"></i>
+						<i (click)="deleteVehiculo(vehiculo.id)" class="bi bi-trash"></i>
+					</div>
+				</div>
+			</section>
+		</div>
+</div>
+<div class="modal" [class.show]="isEditing && vehiculoSelected">
+    <div class="modal-content">
+        <div class="input-modal">
+            <h2>Editar Vehículo</h2>
+            <div class="field">
+                <label for="marca">Marca</label>
+                <input [(ngModel)]="vehiculoSelected.marca" type="text">
+            </div>
+             <div class="field">
+                <label for="tieneAire">Tiene aire</label>
+                <input [(ngModel)]="vehiculoSelected.tieneAire" type="checkbox">
+            </div>
+                <div class="field">
+                <label for="modelo">Modelo</label>
+                <input [(ngModel)]="vehiculoSelected.modelo" type="number">
+            </div>
+                <div class="field">
+                <label for="color">Color</label>
+                <input [(ngModel)]="vehiculoSelected.color" type="text">
+            </div>
+                <div class="field">
+                <label for="capacidad">Capacidad</label>
+                <input [(ngModel)]="vehiculoSelected.capacidad" type="number">
+            </div>
+        </div>
+        <div class="btn-modal">
+            <button (click)="guardarCambios()">Guardar</button>
+            <button (click)="cancelarCambios()">Cancelar</button>
+        </div>
+    </div>
+</div>
+<div class="modal" [class.show]="isAdding">
+    <div class="modal-content">
+        <div class="input-modal">
+            <h2>Nuevo vehículo</h2>
+            <div class="field">
+                <label for="">Marca</label>
+                <input [(ngModel)]="newVehiculo.marca" name="marca" type="text">
+            </div>
+                <div class="field">
+                <label for="">Tiene aire?</label>
+                <input [(ngModel)]="newVehiculo.tieneAire" name="tieneAire" type="checkbox">
+            </div>
+            <div class="field">
+                <label for="">Modelo</label>
+                <input [(ngModel)]="newVehiculo.modelo" name="modelo" type="number">
+            </div>
+            <div class="field">
+                <label for="">Placa</label>
+                <input [(ngModel)]="newVehiculo.placa" name="placa" type="text">
+            </div>
+            <div class="field">
+                <label for="">Color</label>
+                <input [(ngModel)]="newVehiculo.color" name="color" type="text">
+            </div>
+            <div class="field">
+                <label for="">Capacidad</label>
+                <input [(ngModel)]="newVehiculo.capacidad" name="capacidad" type="number">
+            </div>
+            <div class="btn-modal">
+                <button type="submit" (click)="guardarNuevo()">Guardar</button>
+                <button type="submit" (click)="isAdding = false">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-container">
+    <div class="agregar_vehiculo" (click)="abrirModalAdding()" >
+        <p>Añadir vehiculo</p>
+        <i class="bi bi-plus-square"></i>
+    </div>
+</div>

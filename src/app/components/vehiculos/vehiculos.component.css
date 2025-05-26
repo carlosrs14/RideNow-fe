@@ -1,0 +1,196 @@
+/* Contenedor principal */
+.data-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: #f5faff;
+  font-family: 'Times New Roman', Times, serif;
+  gap: 20px;
+}
+
+.owner-panel {
+  width: 300px;
+  background-color:  #1e90ff;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.owner-header h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.profile-pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border: 3px solid white;
+}
+
+.datos-personales h3 {
+  margin-top: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+}
+
+.owner-content {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#h4-mis-vehiculos {
+  color: #1e90ff;
+  margin-bottom: 15px;
+}
+
+.vehiculos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.vehiculo-card {
+  background-color: #e6f2ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 6px;
+  padding: 15px;
+  position: relative;
+}
+
+.vehiculo-id {
+  font-weight: bold;
+  color: #1e90ff;
+}
+
+.item-vehiculo {
+  display: inline-block;
+  background-color: #1e90ff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  margin-bottom: 8px;
+}
+
+.btn-vehiculo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-vehiculo i {
+  cursor: pointer;
+  color: #1e90ff;
+  font-size: 1.2em;
+}
+
+.btn-vehiculo i:hover {
+  color: #104e8b;
+}
+
+/* Estilos para modales */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.input-modal h2 {
+  color: #1e90ff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1e90ff;
+}
+
+.field input[type="text"],
+.field input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #b3d9ff;
+  border-radius: 4px;
+}
+
+.field input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.btn-modal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-modal button {
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-modal button:hover {
+  background-color: #104e8b;
+}
+
+.btn-container {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.agregar_vehiculo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1e90ff;
+  color: white;
+  padding: 1px 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.agregar_vehiculo:hover {
+  background-color: #104e8b;
+}

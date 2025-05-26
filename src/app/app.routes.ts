@@ -6,6 +6,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { ReviewComponent } from './components/review/review.component';
 import { UserComponent } from './components/user/user.component';
+import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 export const routes: Routes = [
     {path: '', redirectTo: '/viajes', pathMatch: 'full'},
     {path: 'viajes', component: ViajesComponent, canActivate: []},
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path: 'reserva', component: ReservaComponent, canActivate: []},
     {path: 'review', component: ReviewComponent, canActivate: []},
     {path: 'user', component: UserComponent, canActivate: []},
+    {path: 'vehiculos', component: VehiculosComponent, canActivate: []},
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

@@ -11,6 +11,10 @@
 .datos {
     margin-bottom: 2rem;
 }
+.datos a {
+    display: flex;
+    gap: 10px;
+}
 
 .dato {
     font-size: 1.1rem;
