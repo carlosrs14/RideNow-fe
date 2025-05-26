@@ -18,11 +18,11 @@
 			<section id="vehiculos" class="vehiculos-list">
 				<div class="vehiculo-card" *ngFor="let vehiculo of vehiculos">
 					<h5 class="vehiculo-id">ID: {{ vehiculo.id }}</h5>
-                    <p class="marca-vehiculo">{{vehiculo.marca}}</p>
+                    <p class="marca-vehiculo">Marca: {{vehiculo.marca}}</p>
 					<span *ngIf="vehiculo.tieneAire" class="item-vehiculo">Tiene Aire</span>
-					<p class="modelo-vehiculo">{{vehiculo.modelo}}</p>
-					<p class="color-vehiculo">{{ vehiculo.color }}</p>
-                    <p class="capacidad-vehiculo">{{vehiculo.capacidad}}</p>
+					<p class="modelo-vehiculo">Modelo: {{vehiculo.modelo}}</p>
+					<p class="color-vehiculo">Color: {{ vehiculo.color }}</p>
+                    <p class="capacidad-vehiculo">Capacidad: {{vehiculo.capacidad}}</p>
 					<div class="btn-vehiculo">
 						<i (click)="editVehiculo(vehiculo)" class="bi bi-pencil-square"></i>
 						<i (click)="deleteVehiculo(vehiculo.id)" class="bi bi-trash"></i>

@@ -1,0 +1,74 @@
+<div class="datos-personales">
+    <h3>Datos Personales</h3>
+    <p><strong>Nombre:</strong>{{nombre}}</p>
+    <p><strong>Correo:</strong>{{correo}}</p>
+</div>
+
+
+<div class="owner-content">
+    <h4>Mis denuncias</h4>
+    <section id="denuncias" class="denuncias-list">
+        <div class="denuncia-linea" *ngFor="let denuncia of denuncias">
+            <h5 class="denuncia-id">ID: {{denuncia.id}}</h5>
+            <p class="fecha">Fecha: {{denuncia.fecha}}</p>
+            <p class="descripción">Descripción: {{denuncia.descripcion}}</p>
+            <p class="estado">Estado: {{denuncia.estado}}</p>
+            <p class="idCliente">idCliente: {{denuncia.idCliente}}</p>
+            <p class="idPrestadorDeServicio">idPrestadorDeServicio: {{denuncia.idPrestadorDeServicio}}</p>
+            <div class="btn-vehiculo">
+                <i (click)="editDenuncia(denuncia)" class="bi bi-pencil-square"></i>
+                <i (click)="deleteDenuncia(denuncia.id)" class="bi bi-trash"></i>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="modal" [class.show]="isEditing && denunciaSelected">
+    <div class="modal-content">
+        <div class="input-modal">
+            <h2>Editar Denuncia</h2>
+            <div class="field">
+                <label for="descripcion">Descripción</label>
+                <input [(ngModel)]="denunciaSelected.descripcion" type="text">
+            </div>
+        </div>
+        <div class="btn-modal">
+            <button (click)="guardarCambios()">Guardar</button>
+            <button (click)="cancelarCambios()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" [class.show]="isAdding">
+    <div class="modal-content">
+        <div class="input-modal">
+            <h2>Nueva Denuncia</h2>
+                <div class="field">
+                <label for="">fecha</label>
+                <input [(ngModel)]="newDenuncia.fecha" name="fecha" type="text">
+            </div>
+            <div class="field">
+                <label for="">Descripcion</label>
+                <input [(ngModel)]="newDenuncia.descripcion" name="descripcion" type="text">
+            </div>
+            <div class="field">
+                <label for="">idCliente</label>
+                <input [(ngModel)]="newDenuncia.idCliente" name="idCliente" min= "0" type="number">
+            </div>
+            <div class="field">
+                <label for="">idPrestadorDeServicio</label>
+                <input [(ngModel)]="newDenuncia.idPrestadorDeServicio" name="idPrestadorDeServicio" min= "0"  type="number">
+            </div>
+            <div class="btn-modal">
+                <button type="submit" (click)="guardarNuevo()">Guardar</button>
+                <button type="submit" (click)="isAdding = false">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-container">
+    <div class="agregar_Denuncia" (click)="abrirModalAdding()" >
+        <p>New</p>
+        <i class="bi bi-plus-square"></i>
+    </div>
+</div>
+

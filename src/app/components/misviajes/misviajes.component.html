@@ -1,0 +1,30 @@
+<main>
+    <table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Origen</th>
+				<th>Destino</th>
+				<th>Fecha</th>
+				<th>Hora(miltar)</th>
+				<th>idVehiculo</th>
+				<th>Precio</th>
+				<th>Tipo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let viaje of viajes">
+				<td>{{ viaje.id }}</td>
+				<td> {{viaje.idLocacionOrigen}} </td>
+				<td> {{viaje.idLocacionDestino}}</td>
+				<td>{{ viaje.fecha }}</td>
+				<td>{{ viaje.hora }}</td>
+				<td>{{viaje.idVehiculo}}</td>
+				<td>{{ viaje.precio }}</td>
+				<td>{{ viaje.tipo }}</td>
+			</tr>
+		</tbody>
+    </table>
+  </main>
+  
+
