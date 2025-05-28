@@ -69,6 +69,6 @@ export class ViajesComponent {
 	}
 
 	informacion(viaje: Viaje) {
-		this.router.navigate([`/masinfo/${viaje.idVehiculo}`]);
+		this.router.navigate([`/masinfo/${viaje.id}`]);
 	}
 }

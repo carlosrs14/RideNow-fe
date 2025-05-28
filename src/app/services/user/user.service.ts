@@ -10,8 +10,13 @@ export class UserService {
 
     private urlLogin = environment.apiUrl +'microservicio_usuario_RN/LoginServlet'
     private urlUsuario = environment.apiUrl +'microservicio_usuario_RN/UsuarioServlet'
+    private urlPrestadorDeServicio = environment.apiUrl +'microservicio_usuario_RN/PrestadorServlet'
     
 	constructor(private http: HttpClient) {}
+
+	getByIdViaje(idViaje: number): Observable<any> {
+		return this.http.get(`${this.urlPrestadorDeServicio}?idViaje=${idViaje}`);
+	}
 
     login(correo: string, password: string): Observable<any> {
 		return this.http.post(this.urlLogin, { 

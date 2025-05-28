@@ -64,28 +64,28 @@ export class MisviajesComponent {
 
     deleteViaje(idViaje: number) {
     Swal.fire({
-          title: "¿Estás seguro?",
-          text: "¡Esta acción no se puede deshacer!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Sí, eliminar",
-          cancelButtonText: "Cancelar"
-          }).then((result) => {
-            if (result.isConfirmed) {
-                this.servicio.delete(idViaje).subscribe({
-                  next: () => {
-                      Swal.fire("Eliminado", "El viaje ha sido eliminado correctamente.", "success").then(() => {
-                        location.reload(); 
-                    });
-                  },
-                  error: () => {
-                      Swal.fire("Error", "No se pudo eliminar el viaje", "error");
-                  }
-              });
-            }
+      title: "¿Estás seguro?",
+      text: "¡Esta acción no se puede deshacer!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            this.servicio.delete(idViaje).subscribe({
+              next: () => {
+                  Swal.fire("Eliminado", "El viaje ha sido eliminado correctamente.", "success").then(() => {
+                    location.reload(); 
+                });
+              },
+              error: () => {
+                  Swal.fire("Error", "No se pudo eliminar el viaje", "error");
+              }
           });
+        }
+      });
 
     }
   }
