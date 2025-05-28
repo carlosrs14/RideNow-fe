@@ -3,7 +3,7 @@
     <a routerLink="/viajes">Ride Now</a>
     <a routerLink="/viajes">Viajes</a>
     <a routerLink="/reserva">Reservas</a>
-    <a routerLink="/denuncias">Denuncias</a>
+    <a *ngIf="tipoUsuario == 'cliente'" routerLink="/denuncias">Denuncias</a>
     <a (click)="login()"><i class="bi bi-person-circle"></i></a>
   </nav>
 </header>
