@@ -9,8 +9,33 @@ import { Review } from '../../models/Review';
 })
 export class ReviewService {
 
-  private urlReview = environment.apiUrl + 'microservicio_reviews_RN/VReviewServlet'
+    private urlReview = environment.apiUrl + 'microservicio_reviews_RN/VReviewServlet'
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
+	filterByPrestador(idPrestador: number): Observable<any> {
+		return this.http.get(`${this.urlReview}?idPrestador=${idPrestador}`);
+	}
+
+	create(review: Review): Observable<any> {
+		return this.http.post(this.urlReview, {
+			idCliente: review.idCliente,
+			comentario: review.comentario,
+			calificacion: review.calificacion,
+			idPrestador: review.idPrestador,
+			fecha: review.fecha
+		});
+	}
+
+	delete(idReview: number): Observable<any> {
+		return this.http.delete(`${this.urlReview}?idReview=${idReview}`);
+	}
+	
+	update(review: Review): Observable<any> {
+		return this.http.put(this.urlReview, {
+			id: review.id,
+			comentario: review.comentario,
+			calificacion: review.calificacion,
+		});
+	}
 }

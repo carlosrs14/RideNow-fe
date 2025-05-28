@@ -5,6 +5,9 @@ import { NgFor } from '@angular/common';
 import { Reserva } from '../../models/reserva';
 import { ReservaService } from '../../services/reserva/reserva.service';
 import Swal from 'sweetalert2';
+import { UserService } from '../../services/user/user.service';
+import { Denuncia } from '../../models/Denuncia';
+import { DenunciaService } from '../../services/denuncias/denuncia.service';
 
 @Component({
   selector: 'app-reserva',
@@ -14,8 +17,10 @@ import Swal from 'sweetalert2';
 })
 export class ReservaComponent {
     reservas: Reserva[] = [];
-
-	constructor(private servicioReserva: ReservaService, private router: Router) {}
+	newDenuncia: Denuncia = new Denuncia(0, new Date(), "", "", 0, 0);
+	isAddingDenuncia: boolean = false;
+	idViaje: number = 0;
+	constructor(private servicioReserva: ReservaService, private servicioUsuario: UserService, private servicioDenuncia: DenunciaService , private router: Router) {}
 
 	ngOnInit() {
 		this.reservas = [];
@@ -70,4 +75,57 @@ export class ReservaComponent {
     masInfo(idViaje: number) {
 		this.router.navigate([`/masinfo/${idViaje}`])
 	}
+
+	abrirModalAdding(id: number) {
+		this.idViaje = id;
+		this.isAddingDenuncia = true;
+	}
+
+	denunciar() {
+		this.servicioUsuario.getByIdViaje(this.idViaje).subscribe({
+			next: (response) => {
+				const id: number = response.id;
+				const idClienteStr = localStorage.getItem('idUsuario');
+				if(!idClienteStr) return;
+
+				this.newDenuncia.idCliente = parseInt(idClienteStr);
+				this.newDenuncia.idPrestadorDeServicio = id;
+				this.newDenuncia.fecha = new Date();
+				console.log(this.newDenuncia);
+				this.servicioDenuncia.create(this.newDenuncia).subscribe({
+					next: (response) => {
+						Swal.fire({
+							title: "Denuncia creada correctamente",
+							icon: "success",
+							draggable: true
+						});
+						this.isAddingDenuncia = false;
+					},
+					error: (err) => {
+						console.log(err);
+						Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Hubo un error al guardar la denuncia",
+						});
+					}
+				});
+			},
+			error: (error) => {
+				console.log(error);
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "No se encontro al prestador de servivio",
+				});
+			}
+		});
+	}
+
+	resenar(idViaje: number) {
+		this.servicioUsuario.getByIdViaje(idViaje).subscribe({
+			
+		});
+	}
+
 }

@@ -15,8 +15,7 @@ import Swal from 'sweetalert2';
 export class DenunciasComponent {
   constructor(private servicio: DenunciaService, private roter: Router){}
   denuncias: Denuncia[] = [];
-  denunciaSelected: Denuncia = new Denuncia(0, "", "", "", 0, 0);
-  newDenuncia: Denuncia = new Denuncia(0, "", "", "", 0, 0);
+  denunciaSelected: Denuncia = new Denuncia(0, new Date(), "", "", 0, 0);
   nombre: string = "";
   correo: string = "";
 
@@ -89,13 +88,6 @@ export class DenunciasComponent {
       this.isEditing = true;
     }
 
-    cerrarModalAdding() {
-      this.isAdding = false;
-    }
-
-    abrirModalAdding() {
-		  this.isAdding = true;
-	  }
     deleteDenuncia(idDenuncia: number) {
         Swal.fire({
           title: "¿Estás seguro?",

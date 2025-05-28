@@ -1,12 +1,12 @@
 export class Denuncia {
     id: number;
-    fecha: string;
+    fecha: Date;
     descripcion: string;
     estado: string;
     idCliente: number;
     idPrestadorDeServicio: number;
 
-    constructor(id: number, fecha: string, descripcion: string, estado: string, idCliente: number, idPrestadorDeServicio: number) {
+    constructor(id: number, fecha: Date, descripcion: string, estado: string, idCliente: number, idPrestadorDeServicio: number) {
         this.id = id;
         this.fecha = fecha;
         this.descripcion = descripcion;
