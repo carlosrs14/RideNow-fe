@@ -20,26 +20,24 @@
     <table>
 		<thead>
 			<tr>
-				<th>Id</th>
 				<th>Origen</th>
 				<th>Destino</th>
 				<th>Fecha</th>
 				<th>Hora(miltar)</th>
-				<th>Prestador de servicio</th>
 				<th>Precio</th>
 				<th>Tipo</th>
+				<th>Accion</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let viaje of viajes">
-				<td>{{ viaje.id }}</td>
-				<td> origen </td>
-				<td> destino </td>
-				<td>{{ viaje.fecha }}</td>
-				<td>{{ viaje.hora }}</td>
-				<td>nombre de servicio</td>
-				<td>{{ viaje.precio }}</td>
-				<td>{{ viaje.tipo }}</td>
+				<td (click)="informacion(viaje)"> origen {{ viaje.idLocacionOrigen }} </td>
+				<td (click)="informacion(viaje)"> destino {{ viaje.idLocacionDestino }}</td>
+				<td (click)="informacion(viaje)">{{ viaje.fecha }}</td>
+				<td (click)="informacion(viaje)">{{ viaje.hora }}</td>
+				<td (click)="informacion(viaje)">$ {{ viaje.precio }}</td>
+				<td (click)="informacion(viaje)">{{ viaje.tipo }}</td>
+				<td><i (click)="reservar(viaje)" class="bi bi-plus-circle-fill"></i></td>
 			</tr>
 		</tbody>
     </table>

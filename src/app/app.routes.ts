@@ -21,7 +21,7 @@ export const routes: Routes = [
     {path: 'vehiculos', component: VehiculosComponent, canActivate: []},
     {path: 'denuncias', component: DenunciasComponent, canActivate: []},
     {path: 'misviajes', component: MisviajesComponent, canActivate: []},
-    {path: 'masinfo', component: MasinformacionComponent, canActivate: []},
+    {path: 'masinfo/:id', component: MasinformacionComponent, canActivate: []},
     {path: '**', redirectTo: '/viajes', pathMatch: 'full'},
 ];
 
