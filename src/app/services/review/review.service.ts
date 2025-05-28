@@ -9,7 +9,7 @@ import { Review } from '../../models/Review';
 })
 export class ReviewService {
 
-    private urlReview = environment.apiUrl + 'microservicio_reviews_RN/VReviewServlet'
+    private urlReview = environment.apiUrl + '8083/reviews/ReviewServlet'
 
     constructor(private http: HttpClient) {}
 
@@ -30,7 +30,7 @@ export class ReviewService {
 	delete(idReview: number): Observable<any> {
 		return this.http.delete(`${this.urlReview}?idReview=${idReview}`);
 	}
-	
+
 	update(review: Review): Observable<any> {
 		return this.http.put(this.urlReview, {
 			id: review.id,

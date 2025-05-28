@@ -46,23 +46,36 @@ export class ViajesComponent {
 	}
 
 	reservar(viaje: Viaje) {
-		const idUsuarioStr = localStorage.getItem('idUsuario');
-		if (!idUsuarioStr) return;
-		const idUsuario: number = parseInt(idUsuarioStr);
-		this.reservaService.create(new Reserva(0, new Date(), idUsuario, 0, viaje.id)).subscribe({
-			next: (response) => {
-				Swal.fire({
-					title: "Reserva creada correctamente",
-					icon: "success",
-					confirmButtonText: "OK"
-				});
-			},
-			error: (err) => {
-				console.log(err);
-				Swal.fire({
-					icon: "error",
-					title: "Oops...",
-					text: "Hubo un error al reservar el viaje",
+		Swal.fire({
+			title: "¿Estás seguro?",
+			text: "¡harás una reserva!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Sí, eliminar",
+			cancelButtonText: "Cancelar"
+		}).then((result) => {
+			if (result.isConfirmed) {
+				const idUsuarioStr = localStorage.getItem('idUsuario');
+				if (!idUsuarioStr) return;
+				const idUsuario: number = parseInt(idUsuarioStr);
+				this.reservaService.create(new Reserva(0, new Date(), idUsuario, 0, viaje.id)).subscribe({
+					next: (response) => {
+						Swal.fire({
+							title: "Reserva creada correctamente",
+							icon: "success",
+							confirmButtonText: "OK"
+						});
+					},
+					error: (err) => {
+						console.log(err);
+						Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Hubo un error al reservar el viaje",
+						});
+					}
 				});
 			}
 		});

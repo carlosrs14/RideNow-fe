@@ -8,9 +8,9 @@ import { Usuario } from '../../models/usuario';
 })
 export class UserService {
 
-    private urlLogin = environment.apiUrl +'microservicio_usuario_RN/LoginServlet'
-    private urlUsuario = environment.apiUrl +'microservicio_usuario_RN/UsuarioServlet'
-    private urlPrestadorDeServicio = environment.apiUrl +'microservicio_usuario_RN/PrestadorServlet'
+    private urlLogin = environment.apiUrl +'8084/usuario/LoginServlet'
+    private urlUsuario = environment.apiUrl +'8084/usuario/UsuarioServlet'
+    private urlPrestadorDeServicio = environment.apiUrl +'8084/usuario/PrestadorServlet'
     
 	constructor(private http: HttpClient) {}
 

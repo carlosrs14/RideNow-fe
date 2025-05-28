@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 })
 export class ReservaService {
 
-	private urlReserva = environment.apiUrl +'microservicio_reserva_RN/ReservaServlet'
+	private urlReserva = environment.apiUrl +'8082/reserva/ReservaServlet'
 	
   	constructor(private http: HttpClient) { }
 

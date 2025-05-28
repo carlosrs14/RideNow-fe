@@ -10,7 +10,7 @@ import { reportUnhandledError } from 'rxjs/internal/util/reportUnhandledError';
 })
 export class VehiculoService {
 	
-	private urlVehiculo = environment.apiUrl + 'microservicio_viajes_RN/VehiculoServlet';
+	private urlVehiculo = environment.apiUrl + '8085/viajes/VehiculoServlet';
 	
 	constructor(private http: HttpClient) { }
 

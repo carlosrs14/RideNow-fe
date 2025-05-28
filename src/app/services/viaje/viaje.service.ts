@@ -9,7 +9,7 @@ import { Viaje } from '../../models/viaje';
 })
 export class ViajeService {
 
-    private urlViaje = environment.apiUrl +'microservicio_viajes_RN/ViajeServlet'
+    private urlViaje = environment.apiUrl +'8085/viajes/ViajeServlet'
 	
 	constructor(private http: HttpClient) {}
 

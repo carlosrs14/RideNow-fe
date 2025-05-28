@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DenunciaService {
-  private urlDenuncia = environment.apiUrl + 'microservicio_denuncias_RN/DenunciaServlet'
+  private urlDenuncia = environment.apiUrl + '8081/denuncias/DenunciaServlet'
 
   constructor(private http: HttpClient) { }
 
