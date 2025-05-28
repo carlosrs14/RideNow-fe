@@ -1,0 +1,26 @@
+<aside class="owner-panel">
+    <div class="owner-header">
+        <h2>Perfil del Prestador de servicio</h2>
+        <div id="foto-perfil" class="profile-pic">
+            <img src="/assets/foto-user.jpg" alt="Foto del conductor">
+        </div>
+    </div>
+
+    <div class="datos-personales">
+        <h3>Datos Personales</h3>
+        <p><strong>Nombre:</strong>{{nombre}}</p>
+        <p><strong>Correo:</strong>{{correo}}</p>
+    </div>
+
+    <div class="tarjetas">
+        <div class="tarjeta" *ngFor="let review of reviews">
+          <p><strong>ID:</strong> {{review.id}}</p>
+          <p><strong>Calificación:</strong> {{review.calificacion}}/5 ⭐</p>
+          <p><strong>Comentario:</strong></p>
+          <div class="comentario">{{review.comentario}}</div>
+          <p><strong>Fecha:</strong> {{review.fecha}}</p>
+          <p><strong>Cliente:</strong> {{review.cliente}}</p>
+          <p><strong>Prestador de Servicio:</strong> {{review.idPrestadorDeServicio}}</p>
+        </div>
+    </div>
+</aside>

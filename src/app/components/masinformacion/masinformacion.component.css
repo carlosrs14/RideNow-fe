@@ -1,0 +1,37 @@
+
+.owner-panel {
+  width: 300px;
+  background-color:  #0f64b8;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.profile-pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border: 3px solid white;
+}
+
+.datos-personales h3 {
+  margin-top: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+}
+
+.owner-content {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.owner-header h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
