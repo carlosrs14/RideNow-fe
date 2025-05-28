@@ -4,7 +4,7 @@ import { ViajeService } from '../../services/viaje/viaje.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
-import { Viaje } from '../../models/Viaje';
+import { Viaje } from '../../models/viaje';
 
 @Component({
   selector: 'app-misviajes',

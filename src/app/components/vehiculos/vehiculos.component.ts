@@ -4,9 +4,10 @@ import { NgFor, NgIf } from '@angular/common';
 import { Vehiculo } from '../../models/vehiculo';
 import { VehiculoService } from '../../services/vehiculo/vehiculo.service';
 import { Router } from '@angular/router';
-import { Viaje } from '../../models/Viaje';
 import Swal from 'sweetalert2';
 import { ViajeService } from '../../services/viaje/viaje.service';
+import { Viaje } from '../../models/viaje';
+
 @Component({
   selector: 'app-vehiculos',
   standalone: true,

@@ -114,9 +114,8 @@ export class UserComponent {
 	}
 
 	guardarCambios() {
-    const fechaFormateada = this.fechaNacimiento.toISOString().split("T")[0];
     this.userService.update(
-        new Usuario(this.id, this.nombre, this.apellido, this.tipo, this.email, new Date(fechaFormateada), this.telefono, this.password)
+        new Usuario(this.id, this.nombre, this.apellido, this.tipo, this.email, new Date(), this.telefono, this.password)
     ).subscribe({
         next: (response) => {
             Swal.fire({

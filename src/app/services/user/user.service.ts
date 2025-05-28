@@ -38,9 +38,7 @@ export class UserService {
 			nombre: usuario.nombre,
 			apellido: usuario.apellido,
 			correo: usuario.email,
-			password: usuario.password,
 			telefono: usuario.telefono,
-			fechaNacimiento: usuario.fechaNacimiento,
 			tipo: usuario.tipo
 		});
 	}
