@@ -8,18 +8,20 @@
 
     <div class="datos-personales">
         <h3>Datos Personales</h3>
-        <p><strong>Nombre:</strong>{{nombre}}</p>
-        <p><strong>Correo:</strong>{{correo}}</p>
+        <p><strong>Nombre: </strong>{{usuario.nombre}}</p>
+        <p><strong>Fecha de nacimiento: </strong>{{usuario.fechaNacimiento}}</p>
+        <p><strong>Email: </strong>{{usuario.email}}</p>
+        <p><strong>Telefono: </strong>{{usuario.telefono}}</p>
     </div>
 
     <div class="tarjetas">
         <div class="tarjeta" *ngFor="let review of reviews">
-          <p><strong>ID:</strong> {{review.id}}</p>
-          <p><strong>Calificación:</strong> {{review.calificacion}}/5 ⭐</p>
-          <p><strong>Comentario:</strong></p>
+          <p><strong>ID: </strong> {{review.id}}</p>
+          <p><strong>Calificación: </strong> {{review.calificacion}}/5 ⭐</p>
+          <p><strong>Comentario: </strong></p>
           <div class="comentario">{{review.comentario}}</div>
-          <p><strong>Fecha:</strong> {{review.fecha}}</p>
-          <p><strong>Cliente:</strong> {{review.idCliente}}</p>
+          <p><strong>Fecha: </strong> {{review.fecha}}</p>
+          <p><strong>Cliente: </strong> {{review.idCliente}}</p>
         </div>
     </div>
 </aside>
