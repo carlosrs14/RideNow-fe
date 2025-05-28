@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { Viaje } from '../../models/viaje';
+import { Viaje } from '../../models/Viaje';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,11 @@ export class ViajeService {
 		return this.http.get(this.urlViaje + `?id=${idViaje}`);
 	}
 
-	delete(viaje: Viaje): Observable<any> {
-		return this.http.delete(this.urlViaje + `?id=${viaje.id}`);
+	delete(idViaje: number): Observable<any> {
+		return this.http.delete(this.urlViaje + `?id=${idViaje}`);
+	}
+
+	filterByOwner(idPrestadorDeServicio: number): Observable<any> {
+		return this.http.get(this.urlViaje + `?idOwner=${idPrestadorDeServicio}`)
 	}
 }

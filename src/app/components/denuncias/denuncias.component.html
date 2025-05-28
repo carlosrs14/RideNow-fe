@@ -38,37 +38,5 @@
     </div>
 </div>
 
-<div class="modal" [class.show]="isAdding">
-    <div class="modal-content">
-        <div class="input-modal">
-            <h2>Nueva Denuncia</h2>
-                <div class="field">
-                <label for="">fecha</label>
-                <input [(ngModel)]="newDenuncia.fecha" name="fecha" type="text">
-            </div>
-            <div class="field">
-                <label for="">Descripcion</label>
-                <input [(ngModel)]="newDenuncia.descripcion" name="descripcion" type="text">
-            </div>
-            <div class="field">
-                <label for="">idCliente</label>
-                <input [(ngModel)]="newDenuncia.idCliente" name="idCliente" min= "0" type="number">
-            </div>
-            <div class="field">
-                <label for="">idPrestadorDeServicio</label>
-                <input [(ngModel)]="newDenuncia.idPrestadorDeServicio" name="idPrestadorDeServicio" min= "0"  type="number">
-            </div>
-            <div class="btn-modal">
-                <button type="submit" (click)="guardarNuevo()">Guardar</button>
-                <button type="submit" (click)="isAdding = false">Cancelar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="btn-container">
-    <div class="agregar_Denuncia" (click)="abrirModalAdding()" >
-        <p>New</p>
-        <i class="bi bi-plus-square"></i>
-    </div>
-</div>
+
 

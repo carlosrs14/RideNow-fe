@@ -12,15 +12,6 @@ export class DenunciaService {
   private urlDenuncia = environment.apiUrl + 'microservicio_denuncias_RN/DenunciaServlet'
 
   constructor(private http: HttpClient) { }
-  create(denuncia: Denuncia): Observable<any> {
-    return this.http.post(this.urlDenuncia, {
-      fecha: denuncia.fecha,
-      descripcion: denuncia.descripcion,
-      idCliente: denuncia.idCliente,
-      idPrestadorDeServicio: denuncia.idPrestadorDeServicio
-    });
-  }
-
   all(): Observable<any> {
     return this.http.get(this.urlDenuncia);
   }

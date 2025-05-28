@@ -26,6 +26,7 @@
 					<div class="btn-vehiculo">
 						<i (click)="editVehiculo(vehiculo)" class="bi bi-pencil-square"></i>
 						<i (click)="deleteVehiculo(vehiculo.id)" class="bi bi-trash"></i>
+                        <i (click)="agregarViaje(vehiculo)" class="bi bi-plus-circle-dotted"></i>
 					</div>
 				</div>
 			</section>
@@ -93,6 +94,42 @@
             <div class="btn-modal">
                 <button type="submit" (click)="guardarNuevo()">Guardar</button>
                 <button type="submit" (click)="isAdding = false">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" [class.show]="AddingViaje">
+    <div class="modal-content">
+        <div class="input-modal">
+            <h2>Nuevo viaje para vehículo: {{vehiculoParaViaje?.marca}} - {{vehiculoParaViaje?.placa}}</h2>
+            <div class="field-fecha">
+                <label for="">Fecha</label>
+                <input [(ngModel)]="newViaje.fecha" name="fecha" type="date">
+            </div>
+                <div class="field">
+                <label for="">Hora</label>
+                <input [(ngModel)]="newViaje.hora" name="hora"  min = "0" type="number">
+            </div>
+            <div class="field">
+                <label for="">Tipo</label>
+                <input [(ngModel)]="newViaje.tipo" name="tipo" type="text">
+            </div>
+            <div class="field">
+                <label for="">Precio</label>
+                <input [(ngModel)]="newViaje.precio" name="precio" min = "0" type="number">
+            </div>
+            <div class="field">
+                <label for="">id locación Origen</label>
+                <input [(ngModel)]="newViaje.idLocacionOrigen" name="idLocacionOrigen" min = "0" type="number">
+            </div>
+            <div class="field">
+                <label for="">id locación Destino</label>
+                <input [(ngModel)]="newViaje.idLocacionDestino" name="idLocacionDestino" min = "0" type="number">
+            </div>
+            <div class="btn-modal">
+                <button type="submit" (click)="guardarViaje()">Guardar</button>
+                <button type="submit" (click)="AddingViaje = false">Cancelar</button>
             </div>
         </div>
     </div>

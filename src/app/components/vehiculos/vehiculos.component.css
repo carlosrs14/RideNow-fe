@@ -16,6 +16,15 @@
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+.field-fecha {
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+}
 
 .owner-header h2 {
   text-align: center;

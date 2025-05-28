@@ -96,35 +96,6 @@ export class DenunciasComponent {
     abrirModalAdding() {
 		  this.isAdding = true;
 	  }
-
-  
-    guardarNuevo() {
-      const idCliente1 = localStorage.getItem('idUsuario');
-      if(!idCliente1) return;
-      this.newDenuncia.idCliente = parseInt(idCliente1);
-      
-
-        console.log("Enviando denuncia:", this.newDenuncia); 
-      this.servicio.create(this.newDenuncia).subscribe({
-        next: (response) => {
-            Swal.fire({
-            title: "Denuncia creada correctamente",
-            icon: "success",
-            draggable: true
-          });
-          location.reload();
-        },
-        error: (err) => {
-            Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Hubo un error al guardar la denuncia",
-          });
-        }
-      });
-      this.cerrarModalAdding();
-    }
-
     deleteDenuncia(idDenuncia: number) {
         Swal.fire({
           title: "¿Estás seguro?",
@@ -175,9 +146,4 @@ export class DenunciasComponent {
       });
       this.cerrarModalEditing();
       }
-
-
-
-
-
 }

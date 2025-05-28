@@ -4,7 +4,9 @@ import { NgFor, NgIf } from '@angular/common';
 import { Vehiculo } from '../../models/vehiculo';
 import { VehiculoService } from '../../services/vehiculo/vehiculo.service';
 import { Router } from '@angular/router';
+import { Viaje } from '../../models/Viaje';
 import Swal from 'sweetalert2';
+import { ViajeService } from '../../services/viaje/viaje.service';
 @Component({
   selector: 'app-vehiculos',
   standalone: true,
@@ -13,10 +15,11 @@ import Swal from 'sweetalert2';
   styleUrl: './vehiculos.component.css'
 })
 export class VehiculosComponent {
-  constructor( private servicio: VehiculoService,  private router: Router){}
+  constructor( private servicio: VehiculoService, private servicioViaje: ViajeService,  private router: Router){}
   vehiculos: Vehiculo[] = [];
   vehiculoSelected: Vehiculo = new Vehiculo(0, "", 0, "", false, "", 0, 0);
   newVehiculo: Vehiculo = new Vehiculo(0, "", 0, "", false, "", 0, 0);
+  newViaje: Viaje = new Viaje(0, new Date(), 0,"", 0, 0, 0, 0);
   nombre: string = "";
   correo: string = "";
 
@@ -26,8 +29,11 @@ export class VehiculosComponent {
   colorAnterior: string = "";
   capacidadAnterior: number = 0;
 
+  vehiculoParaViaje: any = null;
+
   isEditing: boolean = false;
   isAdding: boolean = false;
+  AddingViaje: boolean = false;
 
     ngOnInit(): void {
     const nombreCache = localStorage.getItem("nombreUsuario");
@@ -109,6 +115,55 @@ export class VehiculosComponent {
   abrirModalAdding() {
 		this.isAdding = true;
 	}
+
+  abrirModalAddingViaje(vehiculo: Vehiculo) {
+    this.vehiculoParaViaje = vehiculo;
+    this.AddingViaje = true;
+  }
+  
+  cerrarModalAddingViaje() {
+    this.AddingViaje = false;
+    this.vehiculoParaViaje = null;
+  }
+
+  agregarViaje(vehiculo: Vehiculo) {
+    this.vehiculoParaViaje = vehiculo;
+    this.AddingViaje = true;
+
+    this.newViaje = {
+      id:0, 
+      fecha: new Date(),
+      hora: 0,
+      tipo: "",
+      precio: 0,
+      idVehiculo: vehiculo.id,
+      idLocacionOrigen: 0,
+      idLocacionDestino: 0
+    };
+
+  }
+guardarViaje() {
+  this.servicioViaje.create(this.newViaje).subscribe({
+    next: (response) => {
+      Swal.fire({
+        title: "Viaje creado correctamente",
+        icon: "success",
+        confirmButtonText: "OK"
+      }).then(() => {
+        this.cerrarModalAdding(); 
+        location.reload(); 
+      });
+    },
+    error: (err) => {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Hubo un error al guardar el viaje",
+      });
+    }
+  });
+}
+
 
   guardarNuevo() {
     const idPrestador = localStorage.getItem('idUsuario');
