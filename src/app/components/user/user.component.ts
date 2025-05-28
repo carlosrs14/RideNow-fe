@@ -5,6 +5,7 @@ import { routes } from '../../app.routes';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-user',
@@ -73,9 +74,18 @@ export class UserComponent {
 	}
 	
 	borrarCuenta() {
-		const confirmar = confirm("¿Estás seguro de que deseas borrar tu cuenta?");
-		if (confirmar) {
-			this.userService.delete(this.id).subscribe({
+		Swal.fire({
+			title: "¿Estás seguro?",
+			text: "¡Esta acción no se puede deshacer!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Sí, eliminar",
+			cancelButtonText: "Cancelar"
+		}).then((result) => {
+			if(result.isConfirmed) {
+				this.userService.delete(this.id).subscribe({
 				next: (response) => {
 					localStorage.clear();
 					this.route.navigate(["/registro"]);
@@ -85,7 +95,9 @@ export class UserComponent {
 					alert("Usuario no borrado");
 				}
 			});
-		}
+			}
+		});
+	
 	}
 
 	cerrarSesion() {
@@ -102,21 +114,30 @@ export class UserComponent {
 	}
 
 	guardarCambios() {
-		const fechaFormateada = this.fechaNacimiento.toISOString().split("T")[0];
-		this.userService.update(
-			new Usuario(this.id, this.nombre, this.apellido, this.tipo, this.email,new Date(fechaFormateada), this.telefono, this.password)
-		).subscribe({
-			next: (response) => {
-				alert("Usuario Actualizado correctamente");
-				this.modoEdicion = false;
-			},
-			error: (error) => {
-				console.log(error);
-				alert("Error Actualizando el usuario");
-				this.modoEdicion = false;
-			}
-		});
-	}
+    const fechaFormateada = this.fechaNacimiento.toISOString().split("T")[0];
+    this.userService.update(
+        new Usuario(this.id, this.nombre, this.apellido, this.tipo, this.email, new Date(fechaFormateada), this.telefono, this.password)
+    ).subscribe({
+        next: (response) => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Usuario actualizado',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            this.modoEdicion = false;
+        },
+        error: (error) => {
+            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Error actualizando el usuario'
+            });
+            this.modoEdicion = false;
+        }
+    });
+}
 
 	cancelarEdicion() {
 		this.nombre = this.nombreOriginal;
