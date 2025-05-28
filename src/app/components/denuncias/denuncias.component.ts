@@ -41,7 +41,7 @@ export class DenunciasComponent {
       this.correo = correoCache.toString();
     }
     
-    const idCliente = parseInt(idClienteStr);
+    const idCliente: number = parseInt(idClienteStr);
     this.servicio.filterByOwner(idCliente).subscribe({
       next: (response) => {
         for (let denuncia of response) {
